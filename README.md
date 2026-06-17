@@ -9,6 +9,7 @@ Web je připravený pro dočasné nasazení přes GitHub Pages z kořene repozit
 - `index.html` - kompletní český obsah, SEO metadata, Open Graph metadata a JSON-LD strukturovaná data.
 - `style.css` - responzivní vizuální styl, mobilní navigace, layout, placeholdery pro fotografie.
 - `script.js` - mobilní menu, FAQ accordion, animace při scrollu a dynamický rok ve footeru.
+- `assets/instagram/` - lokální kopie vybraných veřejně dostupných fotografií a náhledů z Instagramu @lashes.mt.
 - `README.md` - instrukce pro úpravy a nasazení.
 
 Web nevyžaduje `npm install`, build step, backend ani žádné placené závislosti.
@@ -33,16 +34,37 @@ Rezervace nyní vede na Instagram DM:
 
 Pokud bude později rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Objednat přes Instagram` finální rezervační URL.
 
-## Galerie a fotografie
+## Galerie, fotografie a Reels
 
-Instagram fotografie se záměrně nestahují automaticky. Sekce Galerie a Hero obsahují elegantní placeholdery.
+Web nyní používá lokálně uložené fotografie a náhledy z Instagramu @lashes.mt, aby GitHub Pages nebyl závislý na dočasných Instagram URL. Profilový portrét je použitý v sekci `O mně`, detail řas v hero sekci a kurzové vizuály v sekci `Kurz`.
 
-Po dodání reálných fotografií:
+Po přihlášení k Instagramu bylo z profilu zpracováno všech 36 dostupných příspěvků. Náhledy jsou uložené ve složce `assets/instagram/archive/`. Výchozí galerie ukazuje kurátorovaný výběr novějších a vizuálně silnějších položek; celý archiv 36 příspěvků jde rozbalit tlačítkem v galerii.
 
-1. Nahrajte optimalizované soubory do repozitáře, například do složky `assets/`.
-2. Nahraďte placeholder bloky v `index.html` skutečnými `<img>` prvky.
+Galerie je roztříděná podle tématu:
+
+- Řasy
+- Obočí & lash lift
+- Kurz
+- Vzdělávání
+- Reels / video
+
+Reels a video příspěvky nejsou ukládány jako lokální `.mp4`, protože Instagram je v prohlížeči poskytuje jako dočasné `blob:` streamy bez stabilní adresy vhodné pro GitHub Pages. Na webu jsou proto použité lokální náhledové obrázky a odkazy na původní Reels / příspěvky.
+
+Po dodání finálních fotografií nebo videí:
+
+1. Nahrajte optimalizované soubory do repozitáře, ideálně do složky `assets/`.
+2. Nahraďte nebo doplňte položky v sekci `#galerie` v `index.html`.
 3. Přidejte výstižný `alt` text, například `Detail prodloužených řas po aplikaci`.
 4. Ideálně používejte komprimovaný formát `.webp` nebo optimalizované `.jpg`.
+5. U videí používejte krátké optimalizované `.mp4` soubory s `preload="metadata"` a náhledovým obrázkem.
+
+## Kurz prodlužování řas
+
+Sekce `#kurz` vychází z veřejného Instagram příspěvku:
+
+`https://www.instagram.com/p/DYpo3svjuNW/`
+
+Obsahuje individuální dvoudenní školení `Classic 1:1 & Volume Basics (2D)`, určené pro začátečnice i stylistky, které chtějí zlepšit techniku. Cena kurzu není doplněná, protože nebyla ve veřejném příspěvku dostupná.
 
 ## Nasazení na GitHub Pages
 
