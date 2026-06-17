@@ -51,6 +51,7 @@
   const galleryGrid = document.querySelector("[data-gallery-grid]");
   const galleryFilters = document.querySelectorAll("[data-gallery-filter]");
   const galleryArchiveToggle = document.querySelector("[data-gallery-archive-toggle]");
+  const galleryStatus = document.querySelector("[data-gallery-status]");
   let isGalleryArchiveVisible = false;
   const galleryItems = [
     {
@@ -62,8 +63,7 @@
       height: 1350,
       label: "Kurz",
       title: "Kurz Perfect Lash Start",
-      description: "Individuální kurz prodlužování řas Classic 1:1 & Volume Basics (2D).",
-      featured: true
+      description: "Individuální kurz prodlužování řas Classic 1:1 & Volume Basics (2D)."
     },
     {
       categories: ["lashes", "brows", "reels"],
@@ -96,7 +96,8 @@
       height: 1136,
       label: "Reel",
       title: "Beauty Games 2026",
-      description: "Inspirace z beauty konference."
+      description: "Inspirace z beauty konference.",
+      archived: true
     },
     {
       categories: ["lashes"],
@@ -107,8 +108,7 @@
       height: 1440,
       label: "Řasy",
       title: "Wispy řasy",
-      description: "Kouzlo wispy řas pro jemně výrazný pohled.",
-      featured: true
+      description: "Kouzlo wispy řas pro jemně výrazný pohled."
     },
     {
       categories: ["lashes", "reels"],
@@ -130,7 +130,8 @@
       height: 1136,
       label: "Reel",
       title: "Na správném místě",
-      description: "Atmosféra a výsledek beauty péče."
+      description: "Atmosféra a výsledek beauty péče.",
+      archived: true
     },
     {
       categories: ["lashes", "reels"],
@@ -174,7 +175,8 @@
       height: 1675,
       label: "Vzdělávání",
       title: "Lash Summit",
-      description: "Vzdělávání a inspirace z lash eventu."
+      description: "Vzdělávání a inspirace z lash eventu.",
+      archived: true
     },
     {
       categories: ["brows", "lashes", "reels"],
@@ -207,7 +209,8 @@
       height: 1916,
       label: "Řasy",
       title: "Detail práce",
-      description: "Ukázka precizní lash práce."
+      description: "Ukázka precizní lash práce.",
+      archived: true
     },
     {
       categories: ["lashes"],
@@ -218,7 +221,8 @@
       height: 1832,
       label: "Řasy",
       title: "Elegantní efekt",
-      description: "Detail upraveného pohledu."
+      description: "Detail upraveného pohledu.",
+      archived: true
     },
     {
       categories: ["brows", "lashes", "reels"],
@@ -229,7 +233,8 @@
       height: 1136,
       label: "Reel",
       title: "Laminace obočí + řasy",
-      description: "Spojení brow laminace a řas M."
+      description: "Spojení brow laminace a řas M.",
+      archived: true
     },
     {
       categories: ["lashes", "reels"],
@@ -251,7 +256,8 @@
       height: 1507,
       label: "Řasy",
       title: "Přirozené zvýraznění",
-      description: "Jemný lash styling pro přirozený efekt."
+      description: "Jemný lash styling pro přirozený efekt.",
+      archived: true
     },
     {
       categories: ["brows", "reels"],
@@ -472,7 +478,7 @@
 
   function createGalleryCard(item) {
     const article = document.createElement("article");
-    article.className = `gallery-card reveal${item.featured ? " gallery-card--featured" : ""}`;
+    article.className = "gallery-card reveal";
     article.dataset.galleryCategory = item.categories.join(" ");
     article.dataset.galleryArchive = String(Boolean(item.archived));
 
@@ -488,6 +494,10 @@
     image.height = item.height;
     image.loading = "lazy";
 
+    const mediaWrap = document.createElement("div");
+    mediaWrap.className = "gallery-card__media";
+    mediaWrap.append(image);
+
     const bodyWrap = document.createElement("div");
     bodyWrap.className = "gallery-card__body";
 
@@ -501,7 +511,7 @@
     description.textContent = item.description;
 
     bodyWrap.append(label, title, description);
-    link.append(image, bodyWrap);
+    link.append(mediaWrap, bodyWrap);
     article.append(link);
 
     return article;
@@ -515,6 +525,7 @@
     if (!galleryGrid) return;
 
     const activeFilter = getActiveGalleryFilter();
+    const activeFilterButton = document.querySelector("[data-gallery-filter].is-active");
     const fragment = document.createDocumentFragment();
     const visibleItems = galleryItems.filter((item) => {
       const matchesFilter = activeFilter === "all" || item.categories.includes(activeFilter);
@@ -529,6 +540,13 @@
     });
 
     galleryGrid.replaceChildren(fragment);
+
+    if (galleryStatus) {
+      const itemWord = visibleItems.length === 1 ? "položka" : visibleItems.length > 1 && visibleItems.length < 5 ? "položky" : "položek";
+      const archiveMode = isGalleryArchiveVisible ? "včetně archivu" : "kurátorovaný výběr";
+      const filterName = activeFilterButton?.textContent?.trim() || "Vše";
+      galleryStatus.textContent = `${visibleItems.length} ${itemWord} · ${filterName} · ${archiveMode}`;
+    }
   }
 
   if (galleryGrid) {
