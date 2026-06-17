@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Monika Tomanová Lash Stylist</title>
+  <desc id="desc">Elegantní monogram MT pro web Moniky Tomanové.</desc>
+  <rect width="180" height="180" rx="42" fill="#fffaf5"/>
+  <circle cx="90" cy="90" r="64" fill="#ead0cf" opacity="0.58"/>
+  <circle cx="90" cy="90" r="52" fill="none" stroke="#d6bd92" stroke-width="2"/>
+  <text x="90" y="101" fill="#2d2524" font-family="Georgia, 'Times New Roman', serif" font-size="54" text-anchor="middle">MT</text>
+  <path d="M52 121c19 13 57 13 76 0" fill="none" stroke="#8f6571" stroke-linecap="round" stroke-width="4"/>
+</svg>
