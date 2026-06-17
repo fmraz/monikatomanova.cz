@@ -40,6 +40,8 @@ Web nyní používá lokálně uložené fotografie a náhledy z Instagramu @las
 
 Po přihlášení k Instagramu bylo z profilu zpracováno všech 36 dostupných příspěvků. Náhledy jsou uložené ve složce `assets/instagram/archive/`. Výchozí galerie ukazuje kurátorovaný výběr novějších a vizuálně silnějších položek; celý archiv 36 příspěvků jde rozbalit tlačítkem v galerii.
 
+Karty galerie jsou záměrně sjednocené do menších čtvercových náhledů se stejnou výškou, aby sekce působila jako přehledné portfolio a ne jako neuspořádaný Instagram feed.
+
 Galerie je roztříděná podle tématu:
 
 - Řasy
