@@ -643,22 +643,28 @@ h3 {
 }
 
 .course__media {
+  width: min(100%, 34rem);
+  aspect-ratio: 4 / 5;
+  justify-self: center;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
-  gap: 0.8rem;
-  align-items: end;
+  overflow: hidden;
+  padding: clamp(0.45rem, 1.2vw, 0.7rem);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-lg);
+  background:
+    var(--liquid-highlight),
+    rgba(255, 255, 255, 0.54);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .course__media img {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  height: 100%;
+  border-radius: calc(var(--radius-lg) - 10px);
   object-fit: cover;
-}
-
-.course__media img:nth-child(2) {
-  margin-bottom: clamp(1rem, 6vw, 3.4rem);
+  object-position: center top;
 }
 
 .course__lead {
