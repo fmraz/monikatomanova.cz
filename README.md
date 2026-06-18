@@ -4,13 +4,18 @@ Jednostránkový statický web pro beauty/lash stylist podnikání Moniky Tomano
 
 Web je připravený pro dočasné nasazení přes GitHub Pages z kořene repozitáře a pro budoucí doménu `monikatomanova.cz`, která zatím není aktivní.
 
+Aktuální dočasná URL:
+
+`https://fmraz.github.io/monikatomanova.cz/`
+
 ## Obsah webu
 
 - `index.html` - kompletní český obsah, SEO metadata, Open Graph metadata a JSON-LD strukturovaná data.
 - `style.css` - responzivní vizuální styl, mobilní navigace, layout, placeholdery pro fotografie.
-- `script.js` - mobilní menu, FAQ accordion, animace při scrollu a dynamický rok ve footeru.
+- `script.js` - mobilní menu, FAQ accordion, galerie, animace při scrollu a dynamický rok ve footeru.
 - `assets/instagram/` - lokální kopie vybraných veřejně dostupných fotografií a náhledů z Instagramu @lashes.mt.
 - `README.md` - instrukce pro úpravy a nasazení.
+- `.gitignore` - ochrana před commitem environment souborů, build artefaktů a závislostí.
 
 Web nevyžaduje `npm install`, build step, backend ani žádné placené závislosti.
 
@@ -18,7 +23,7 @@ Web nevyžaduje `npm install`, build step, backend ani žádné placené závisl
 
 Upravujte přímo text v `index.html`.
 
-Hlavní místa k doplnění jsou označená viditelnými placeholdery a TODO komentáři:
+Hlavní místa k doplnění jsou označená TODO komentáři, přirozeným veřejným textem nebo touto dokumentací:
 
 - `[DOPLNIT TELEFON]`
 - `[DOPLNIT E-MAIL]`
@@ -28,11 +33,15 @@ Hlavní místa k doplnění jsou označená viditelnými placeholdery a TODO kom
 - `[DOPLNIT FOTKY PRÁCE / BEFORE-AFTER]`
 - `[DOPLNIT IČO, pokud má být uvedeno]`
 
+Na veřejném webu nejsou použité syrové hranaté placeholdery pro telefon, e-mail nebo otevírací dobu. Dokud údaje nejsou známé, návštěvnice vidí přirozenější informaci, že rezervace probíhá přes Instagram.
+
 Rezervace nyní vede na Instagram DM:
 
 `https://www.instagram.com/lashes.mt/`
 
 Pokud bude později rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Objednat přes Instagram` finální rezervační URL.
+
+Sekce `Objednání` vysvětluje návštěvnicím z Instagramu postup rezervace ve třech krocích. Pokud vznikne rezervační systém, upravte text tak, aby první krok vedl přímo na nový rezervační odkaz.
 
 ## Galerie, fotografie a Reels
 
@@ -111,12 +120,28 @@ www.monikatomanova.cz
 V `index.html` jsou připravené:
 
 - SEO title a meta description.
-- Canonical URL pro budoucí produkční doménu.
+- Canonical URL pro aktuální dočasnou GitHub Pages URL.
 - Open Graph metadata.
 - Twitter card metadata.
 - JSON-LD strukturovaná data typu `BeautySalon`.
+- JSON-LD strukturovaná data typu `FAQPage`.
 
-Po doplnění telefonu, otevírací doby, přesných cen a reálných fotografií aktualizujte i JSON-LD data v `<script type="application/ld+json">`.
+Po koupi a aktivaci domény `monikatomanova.cz` přepněte canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` na finální doménu.
+
+JSON-LD záměrně neobsahuje placeholder telefon, ceny ani otevírací dobu. Po doplnění reálných údajů lze přidat `telephone`, `priceRange`, `openingHoursSpecification`, případně `geo` souřadnice a přesnější `hasMap`.
+
+## Repo a bezpečné vyčištění
+
+Produkční web Moniky je čistě statický a pro GitHub Pages jsou potřeba jen tyto položky:
+
+- `index.html`
+- `style.css`
+- `script.js`
+- `README.md`
+- `.gitignore`
+- `assets/`
+
+Pokud se v pracovním adresáři objeví nesouvisející Next/Supabase soubory typu `app/`, `components/`, `lib/`, `data/`, `supabase/`, `package.json`, `package-lock.json`, `next.config.ts`, `tsconfig.json` nebo `.env.example`, nepatří do tohoto statického webu. Bez potvrzení je nemažte, ale doporučené je přesunout je do samostatného repozitáře/projektové složky.
 
 ## Chybějící informace k doplnění
 
