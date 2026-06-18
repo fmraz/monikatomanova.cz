@@ -1,4 +1,6 @@
 (function () {
+  document.documentElement.classList.add("js-enabled");
+
   const body = document.body;
   const header = document.querySelector("[data-header]");
   const navToggle = document.querySelector(".nav-toggle");
@@ -486,6 +488,7 @@
     link.href = item.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", `${item.title} - otevřít původní příspěvek na Instagramu`);
 
     const image = document.createElement("img");
     image.src = item.image;
@@ -603,7 +606,13 @@
       { threshold: 0.14 }
     );
 
-    revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach((item) => {
+      if (item.getBoundingClientRect().top < window.innerHeight * 0.98) {
+        item.classList.add("is-visible");
+      }
+
+      observer.observe(item);
+    });
   } else {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
