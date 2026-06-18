@@ -14,10 +14,17 @@ Aktuální dočasná URL:
 - `style.css` - responzivní vizuální styl, mobilní navigace, layout, placeholdery pro fotografie.
 - `script.js` - mobilní menu, FAQ accordion, galerie, animace při scrollu a dynamický rok ve footeru.
 - `assets/instagram/` - lokální kopie vybraných veřejně dostupných fotografií a náhledů z Instagramu @lashes.mt.
+- `assets/apple-touch-icon.png` - iOS ikona 180x180 pro uložení webu na plochu.
 - `README.md` - instrukce pro úpravy a nasazení.
 - `.gitignore` - ochrana před commitem environment souborů, build artefaktů a závislostí.
 
 Web nevyžaduje `npm install`, build step, backend ani žádné placené závislosti.
+
+## Strategie webu
+
+Primární cílová skupina jsou ženy z Ostravy a okolí, které hledají prodlužování řas, laminaci obočí nebo laminaci řas a chtějí rychle pochopit službu, důvěryhodnost salonu a objednání přes Instagram.
+
+Sekundární cílová skupina jsou začínající lash stylistky nebo ženy, které zvažují individuální kurz prodlužování řas. Kurz je na webu ponechaný, ale obsahová priorita webu je objednání klientek na služby řas a obočí.
 
 ## Jak upravit obsah
 
@@ -45,11 +52,11 @@ Sekce `Objednání` vysvětluje návštěvnicím z Instagramu postup rezervace v
 
 ## Galerie, fotografie a Reels
 
-Web nyní používá lokálně uložené fotografie a náhledy z Instagramu @lashes.mt, aby GitHub Pages nebyl závislý na dočasných Instagram URL. Profilový portrét je použitý v sekci `O mně`, detail řas v hero sekci a kurzové vizuály v sekci `Kurz`.
+Web nyní používá lokálně uložené fotografie a náhledy z Instagramu @lashes.mt, aby GitHub Pages nebyl závislý na dočasných Instagram URL. Profilový portrét je použitý v sekci `O mně`, detail řas v hero sekci a kurzový vizuál v sekci `Kurz`.
 
 Po přihlášení k Instagramu bylo z profilu zpracováno všech 36 dostupných příspěvků. Náhledy jsou uložené ve složce `assets/instagram/archive/`. Výchozí galerie ukazuje kurátorovaný výběr novějších a vizuálně silnějších položek; celý archiv 36 příspěvků jde rozbalit tlačítkem v galerii.
 
-Karty galerie jsou záměrně sjednocené do menších čtvercových náhledů se stejnou výškou, aby sekce působila jako přehledné portfolio a ne jako neuspořádaný Instagram feed.
+Karty galerie jsou záměrně sjednocené do menších čtvercových náhledů se stejnou výškou, aby sekce působila jako přehledné portfolio a ne jako neuspořádaný Instagram feed. Archivní obrázky jsou optimalizované na rozumný webový rozměr, aby se zlepšila rychlost načítání na mobilu.
 
 Galerie je roztříděná podle tématu:
 
@@ -125,6 +132,7 @@ V `index.html` jsou připravené:
 - Twitter card metadata.
 - JSON-LD strukturovaná data typu `BeautySalon`.
 - JSON-LD strukturovaná data typu `FAQPage`.
+- lokální SEO formulace pro řasy, prodlužování řas a laminaci v Ostravě-Mariánských Horách.
 
 Po koupi a aktivaci domény `monikatomanova.cz` přepněte canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` na finální doménu.
 
@@ -151,6 +159,9 @@ Pokud se v pracovním adresáři objeví nesouvisející Next/Supabase soubory t
 - exact price list
 - real gallery images
 - certificates / experience
+- used brands/materials
+- booking and cancellation rules
+- course price, dates, exact length, what is included, model requirements
 - business ID / IČO if needed
 - privacy policy if contact form or tracking is added later
 

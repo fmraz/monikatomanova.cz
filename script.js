@@ -496,6 +496,8 @@
     image.width = item.width;
     image.height = item.height;
     image.loading = "lazy";
+    image.decoding = "async";
+    image.sizes = "(min-width: 1120px) 210px, (min-width: 860px) 25vw, (min-width: 640px) 33vw, 50vw";
 
     const mediaWrap = document.createElement("div");
     mediaWrap.className = "gallery-card__media";
