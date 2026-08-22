@@ -117,7 +117,7 @@ Finální DNS konfigurace pro GitHub Pages:
 - `@ AAAA 2606:50c0:8003::153`
 - `www CNAME fmraz.github.io`
 
-Wildcard DNS záznamy se nepoužívají. Soubor `CNAME` obsahuje `mtlashes.cz` a GitHub Pages má zapnuté HTTPS.
+Wildcard DNS záznamy se nepoužívají. Soubor `CNAME` obsahuje `mtlashes.cz`. Vynucení HTTPS se zapíná až po vydání certifikátu GitHub Pages.
 
 ## SEO poznámky
 
