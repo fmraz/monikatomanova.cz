@@ -2,9 +2,13 @@
 
 Jednostránkový statický web pro beauty/lash stylist podnikání Moniky Tomanové v Ostravě-Mariánských Horách.
 
-Web je připravený pro dočasné nasazení přes GitHub Pages z kořene repozitáře. Ceník služeb je vyplněný podle dodaného podkladu.
+Web je nasazený přes GitHub Pages z kořene repozitáře. Ceník služeb je vyplněný podle dodaného podkladu.
 
-Aktuální dočasná URL:
+Produkční URL:
+
+`https://mtlashes.cz/`
+
+Záložní GitHub Pages URL:
 
 `https://fmraz.github.io/monikatomanova.cz/`
 
@@ -95,41 +99,39 @@ Web je připravený pro deployment z rootu repozitáře.
    - Folder: `/root`
 4. Uložte nastavení.
 5. Počkejte na dokončení deploye.
-6. Web bude dostupný na dočasné GitHub Pages URL ve tvaru `https://GITHUB_USERNAME.github.io/REPOSITORY_NAME/` nebo `https://GITHUB_USERNAME.github.io/`.
+6. GitHub Pages nasadí web na vlastní doménu podle souboru `CNAME`.
 
-## Budoucí vlastní doména
+## Vlastní doména mtlashes.cz
 
-Soubor `CNAME` zatím není vytvořen. Přidá se až po úspěšném nákupu a nastavení zvolené domény.
+Doména `mtlashes.cz` je registrovaná u VEDOS a jako hlavní adresa webu používá kořenovou variantu bez `www`.
 
-Až bude doména zakoupená:
+Finální DNS konfigurace pro GitHub Pages:
 
-1. Přejděte v repozitáři do `Settings -> Pages`.
-2. Přidejte zakoupenou doménu jako custom domain.
-3. U DNS poskytovatele přidejte CNAME záznam:
-   - `www` -> `GITHUB_USERNAME.github.io`
-4. Pro root doménu přidejte GitHub Pages A záznamy:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-5. V GitHub Pages zapněte `Enforce HTTPS`.
-6. Podle potřeby nastavte přesměrování mezi root doménou a variantou `www`.
+- `@ A 185.199.108.153`
+- `@ A 185.199.109.153`
+- `@ A 185.199.110.153`
+- `@ A 185.199.111.153`
+- `@ AAAA 2606:50c0:8000::153`
+- `@ AAAA 2606:50c0:8001::153`
+- `@ AAAA 2606:50c0:8002::153`
+- `@ AAAA 2606:50c0:8003::153`
+- `www CNAME fmraz.github.io`
 
-Po aktivaci domény je vhodné přidat soubor `CNAME` s finálním hostname.
+Wildcard DNS záznamy se nepoužívají. Soubor `CNAME` obsahuje `mtlashes.cz` a GitHub Pages má zapnuté HTTPS.
 
 ## SEO poznámky
 
 V `index.html` jsou připravené:
 
 - SEO title a meta description.
-- Canonical URL pro aktuální dočasnou GitHub Pages URL.
+- Canonical URL pro `https://mtlashes.cz/`.
 - Open Graph metadata.
 - Twitter card metadata.
 - JSON-LD strukturovaná data typu `BeautySalon`.
 - JSON-LD strukturovaná data typu `FAQPage`.
 - lokální SEO formulace pro řasy, prodlužování řas a laminaci v Ostravě-Mariánských Horách.
 
-Po koupi a aktivaci vlastní domény přepněte canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` na finální doménu.
+Canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` používají produkční doménu `mtlashes.cz`.
 
 JSON-LD obsahuje aktuální cenové rozpětí. Telefon a otevírací dobu lze přidat po potvrzení veřejných údajů; případně lze doplnit také `geo` souřadnice a přesnější `hasMap`.
 
