@@ -776,7 +776,12 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-.price-list {
+.price-catalog {
+  display: grid;
+  gap: 1rem;
+}
+
+.price-group {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.64);
   border-radius: var(--radius-lg);
@@ -784,6 +789,21 @@ h3 {
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+}
+
+.price-group h3 {
+  margin: 0;
+  padding: 1.15rem 1rem;
+  border-bottom: 1px solid rgba(155, 111, 121, 0.16);
+  background: linear-gradient(135deg, rgba(239, 216, 220, 0.36), rgba(255, 255, 255, 0.4));
+  color: var(--color-mauve);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.price-list {
+  margin: 0;
 }
 
 .price-row {
@@ -797,17 +817,32 @@ h3 {
   border-bottom: 0;
 }
 
-.price-row span {
+.price-row dt {
   color: var(--color-muted);
   font-weight: 750;
 }
 
-.price-row strong {
+.price-row dd {
+  margin: 0;
   color: var(--color-ink);
+  font-weight: 850;
+  white-space: nowrap;
 }
 
-.price-row--featured {
-  background: linear-gradient(135deg, rgba(239, 216, 220, 0.34), rgba(135, 155, 139, 0.16));
+.price-note {
+  margin-top: 1rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--color-sage);
+  color: var(--color-muted);
+}
+
+.price-note p {
+  margin: 0;
+}
+
+.price-note a {
+  color: var(--color-mauve);
+  font-weight: 850;
 }
 
 .gallery-grid {
@@ -1188,6 +1223,10 @@ h3 {
     padding: 1.1rem 1.35rem;
   }
 
+  .price-group h3 {
+    padding-inline: 1.35rem;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1255,6 +1294,11 @@ h3 {
 
   .services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .price-catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
   }
 
   .benefits-grid,

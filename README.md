@@ -2,7 +2,7 @@
 
 Jednostránkový statický web pro beauty/lash stylist podnikání Moniky Tomanové v Ostravě-Mariánských Horách.
 
-Web je připravený pro dočasné nasazení přes GitHub Pages z kořene repozitáře a pro budoucí doménu `monikatomanova.cz`, která zatím není aktivní.
+Web je připravený pro dočasné nasazení přes GitHub Pages z kořene repozitáře. Ceník služeb je vyplněný podle dodaného podkladu.
 
 Aktuální dočasná URL:
 
@@ -35,7 +35,6 @@ Hlavní místa k doplnění jsou označená TODO komentáři, přirozeným veře
 - `[DOPLNIT TELEFON]`
 - `[DOPLNIT E-MAIL]`
 - `[DOPLNIT OTEVÍRACÍ DOBU]`
-- `[DOPLNIT AKTUÁLNÍ CENY]`
 - `[DOPLNIT ROKY PRAXE, CERTIFIKÁTY, ZNAČKY PRODUKTŮ]`
 - `[DOPLNIT FOTKY PRÁCE / BEFORE-AFTER]`
 - `[DOPLNIT IČO, pokud má být uvedeno]`
@@ -98,29 +97,25 @@ Web je připravený pro deployment z rootu repozitáře.
 5. Počkejte na dokončení deploye.
 6. Web bude dostupný na dočasné GitHub Pages URL ve tvaru `https://GITHUB_USERNAME.github.io/REPOSITORY_NAME/` nebo `https://GITHUB_USERNAME.github.io/`.
 
-## Budoucí doména monikatomanova.cz
+## Budoucí vlastní doména
 
-Soubor `CNAME` zatím není vytvořen, protože doména `monikatomanova.cz` není zakoupená a nemá se aktivovat.
+Soubor `CNAME` zatím není vytvořen. Přidá se až po úspěšném nákupu a nastavení zvolené domény.
 
 Až bude doména zakoupená:
 
 1. Přejděte v repozitáři do `Settings -> Pages`.
-2. Přidejte custom domain: `www.monikatomanova.cz`.
+2. Přidejte zakoupenou doménu jako custom domain.
 3. U DNS poskytovatele přidejte CNAME záznam:
    - `www` -> `GITHUB_USERNAME.github.io`
-4. Pro root doménu `monikatomanova.cz` přidejte GitHub Pages A záznamy:
+4. Pro root doménu přidejte GitHub Pages A záznamy:
    - `185.199.108.153`
    - `185.199.109.153`
    - `185.199.110.153`
    - `185.199.111.153`
 5. V GitHub Pages zapněte `Enforce HTTPS`.
-6. Podle potřeby nastavte přesměrování root domény na `www.monikatomanova.cz`.
+6. Podle potřeby nastavte přesměrování mezi root doménou a variantou `www`.
 
-Po aktivaci domény je vhodné přidat soubor `CNAME` s obsahem:
-
-```text
-www.monikatomanova.cz
-```
+Po aktivaci domény je vhodné přidat soubor `CNAME` s finálním hostname.
 
 ## SEO poznámky
 
@@ -134,9 +129,9 @@ V `index.html` jsou připravené:
 - JSON-LD strukturovaná data typu `FAQPage`.
 - lokální SEO formulace pro řasy, prodlužování řas a laminaci v Ostravě-Mariánských Horách.
 
-Po koupi a aktivaci domény `monikatomanova.cz` přepněte canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` na finální doménu.
+Po koupi a aktivaci vlastní domény přepněte canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` na finální doménu.
 
-JSON-LD záměrně neobsahuje placeholder telefon, ceny ani otevírací dobu. Po doplnění reálných údajů lze přidat `telephone`, `priceRange`, `openingHoursSpecification`, případně `geo` souřadnice a přesnější `hasMap`.
+JSON-LD obsahuje aktuální cenové rozpětí. Telefon a otevírací dobu lze přidat po potvrzení veřejných údajů; případně lze doplnit také `geo` souřadnice a přesnější `hasMap`.
 
 ## Repo a bezpečné vyčištění
 
@@ -156,7 +151,6 @@ Pokud se v pracovním adresáři objeví nesouvisející Next/Supabase soubory t
 - phone
 - email
 - opening hours
-- exact price list
 - real gallery images
 - certificates / experience
 - used brands/materials
