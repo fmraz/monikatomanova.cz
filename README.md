@@ -106,19 +106,13 @@ Web je připravený pro deployment z rootu repozitáře.
 
 Doména `mtlashes.cz` je registrovaná u VEDOS a jako hlavní adresa webu používá kořenovou variantu bez `www`.
 
-Finální DNS konfigurace pro GitHub Pages:
+Finální veřejná DNS konfigurace přes bezplatnou WEDOS Global Protection:
 
-- `@ A 185.199.108.153`
-- `@ A 185.199.109.153`
-- `@ A 185.199.110.153`
-- `@ A 185.199.111.153`
-- `@ AAAA 2606:50c0:8000::153`
-- `@ AAAA 2606:50c0:8001::153`
-- `@ AAAA 2606:50c0:8002::153`
-- `@ AAAA 2606:50c0:8003::153`
-- `www CNAME fmraz.github.io`
+- `@ A 185.8.237.5`
+- `@ A 185.8.237.6`
+- `www CNAME mtlashes.cz`
 
-Wildcard DNS záznamy se nepoužívají. Soubor `CNAME` obsahuje `mtlashes.cz`. Vynucení HTTPS se zapíná až po vydání certifikátu GitHub Pages.
+AAAA ani wildcard DNS záznamy se nepoužívají. Soubor `CNAME` obsahuje `mtlashes.cz`. HTTPS zajišťuje WEDOS Global Protection platným Let's Encrypt certifikátem pro `mtlashes.cz` i `*.mtlashes.cz`; varianta `www` vede přes stejnou ochranu a přesměruje se na hlavní adresu bez `www`.
 
 ## SEO poznámky
 
