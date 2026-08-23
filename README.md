@@ -34,22 +34,23 @@ Sekundární cílová skupina jsou začínající lash stylistky nebo ženy, kte
 
 Upravujte přímo text v `index.html`.
 
-Hlavní místa k doplnění jsou označená TODO komentáři, přirozeným veřejným textem nebo touto dokumentací:
+Údaje, které zatím nejsou potvrzené, jsou evidované pouze v této dokumentaci:
 
-- `[DOPLNIT TELEFON]`
 - `[DOPLNIT E-MAIL]`
 - `[DOPLNIT OTEVÍRACÍ DOBU]`
 - `[DOPLNIT ROKY PRAXE, CERTIFIKÁTY, ZNAČKY PRODUKTŮ]`
 - `[DOPLNIT FOTKY PRÁCE / BEFORE-AFTER]`
 - `[DOPLNIT IČO, pokud má být uvedeno]`
 
-Na veřejném webu nejsou použité syrové hranaté placeholdery pro telefon, e-mail nebo otevírací dobu. Dokud údaje nejsou známé, návštěvnice vidí přirozenější informaci, že rezervace probíhá přes Instagram.
+Na veřejném webu nejsou použité placeholdery pro nepotvrzené údaje. Telefonní kontakt je `737 713 275` a rezervace je možná také přes Instagram.
 
-Rezervace nyní vede na Instagram DM:
+Rezervace nyní vede na telefon a Instagram DM:
+
+`tel:+420737713275`
 
 `https://www.instagram.com/lashes.mt/`
 
-Pokud bude později rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Objednat přes Instagram` finální rezervační URL.
+Pokud bude později přidán rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Napsat na Instagram` finální rezervační URL. Telefonní odkazy ponechte jako alternativní kontakt.
 
 Sekce `Objednání` vysvětluje návštěvnicím z Instagramu postup rezervace ve třech krocích. Pokud vznikne rezervační systém, upravte text tak, aby první krok vedl přímo na nový rezervační odkaz.
 
@@ -143,6 +144,7 @@ Produkční web Moniky je čistě statický a pro GitHub Pages jsou potřeba jen
 - `style.css`
 - `script.js`
 - `README.md`
+- `CNAME`
 - `.gitignore`
 - `assets/`
 
@@ -150,10 +152,8 @@ Pokud se v pracovním adresáři objeví nesouvisející Next/Supabase soubory t
 
 ## Chybějící informace k doplnění
 
-- phone
 - email
 - opening hours
-- real gallery images
 - certificates / experience
 - used brands/materials
 - booking and cancellation rules

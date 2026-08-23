@@ -11,12 +11,16 @@
     year.textContent = new Date().getFullYear();
   }
 
-  function closeMenu() {
+  function closeMenu(options = {}) {
     if (!navToggle || !navMenu) return;
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", "Otevřít menu");
     navMenu.classList.remove("is-open");
     body.classList.remove("menu-open");
+
+    if (options.restoreFocus) {
+      navToggle.focus();
+    }
   }
 
   if (navToggle && navMenu) {
@@ -26,20 +30,38 @@
       navToggle.setAttribute("aria-label", isOpen ? "Otevřít menu" : "Zavřít menu");
       navMenu.classList.toggle("is-open", !isOpen);
       body.classList.toggle("menu-open", !isOpen);
+
+      if (!isOpen) {
+        window.requestAnimationFrame(() => navMenu.querySelector("a")?.focus());
+      }
     });
 
     navMenu.addEventListener("click", (event) => {
       const target = event.target;
       if (target instanceof HTMLAnchorElement) {
-        closeMenu();
+        closeMenu({ restoreFocus: window.innerWidth < 860 });
       }
     });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        closeMenu();
+        closeMenu({ restoreFocus: true });
       }
     });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      const clickedMenuControl = target instanceof Element && target.closest("[data-nav-menu], .nav-toggle");
+      if (navToggle.getAttribute("aria-expanded") === "true" && !clickedMenuControl) {
+        closeMenu({ restoreFocus: true });
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 860) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 
   function updateHeaderState() {

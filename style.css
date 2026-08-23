@@ -5,7 +5,7 @@
   --color-pearl: #f6eee8;
   --color-blush: #efd8dc;
   --color-champagne: #d8bd89;
-  --color-sage: #879b8b;
+  --color-sage: #667e6e;
   --color-mauve: #9b6f79;
   --color-dark: #201918;
   --color-white: #ffffff;
@@ -495,8 +495,7 @@ h3 {
 .booking-step,
 .benefit,
 .care-card,
-.contact-card,
-.todo-box {
+.contact-card {
   border: 1px solid var(--glass-edge);
   border-radius: var(--radius-md);
   background:
@@ -538,6 +537,12 @@ h3 {
   font-size: 1.05rem;
   font-weight: 850;
   line-height: 1.2;
+}
+
+.info-card a,
+.booking-step a {
+  color: var(--color-mauve);
+  font-weight: 850;
 }
 
 .info-card p,
@@ -744,27 +749,6 @@ h3 {
   object-fit: cover;
 }
 
-.todo-box {
-  margin-top: 1.4rem;
-  padding: 1rem;
-  background: rgba(255, 250, 245, 0.7);
-}
-
-.todo-box strong,
-.todo-box span {
-  display: block;
-}
-
-.todo-box strong {
-  margin-bottom: 0.3rem;
-  color: var(--color-mauve);
-  font-size: 0.85rem;
-}
-
-.todo-box span {
-  color: var(--color-muted);
-}
-
 .benefit,
 .care-card {
   padding: 1.1rem;
@@ -808,7 +792,9 @@ h3 {
 
 .price-row {
   display: grid;
-  gap: 0.35rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
   padding: 1rem;
   border-bottom: 1px solid var(--hairline);
 }
@@ -826,6 +812,7 @@ h3 {
   margin: 0;
   color: var(--color-ink);
   font-weight: 850;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -1117,6 +1104,17 @@ h3 {
   font-weight: 850;
 }
 
+.contact-card__phone {
+  color: var(--color-white) !important;
+  font-size: 1.08rem;
+}
+
+.contact-card a:hover,
+.footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .footer {
   padding: 2rem 0;
   background:
@@ -1148,6 +1146,10 @@ h3 {
   font-weight: 800;
 }
 
+.footer a + a {
+  margin-top: 0.2rem;
+}
+
 .footer p {
   margin: 0;
 }
@@ -1177,7 +1179,9 @@ h3 {
     padding: 0.75rem;
     border: 1px solid rgba(255, 255, 255, 0.68);
     border-radius: var(--radius-md);
-    background: rgba(252, 248, 244, 0.9);
+    max-height: calc(100dvh - var(--header-height) - 1rem);
+    overflow-y: auto;
+    background: var(--color-cream);
     box-shadow: var(--shadow-soft);
     backdrop-filter: saturate(1.45) blur(22px);
     -webkit-backdrop-filter: saturate(1.45) blur(22px);
@@ -1194,7 +1198,9 @@ h3 {
   }
 
   .nav-menu a {
-    display: block;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
     padding: 0.85rem 1rem;
     border-radius: var(--radius-sm);
   }
