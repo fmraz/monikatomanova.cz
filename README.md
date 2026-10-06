@@ -42,15 +42,13 @@ Upravujte přímo text v `index.html`.
 - `[DOPLNIT FOTKY PRÁCE / BEFORE-AFTER]`
 - `[DOPLNIT IČO, pokud má být uvedeno]`
 
-Na veřejném webu nejsou použité placeholdery pro nepotvrzené údaje. Telefonní kontakt je `737 713 275` a rezervace je možná také přes Instagram.
-
-Rezervace nyní vede na telefon a Instagram DM:
-
-`tel:+420737713275`
+Na veřejném webu nejsou použité placeholdery pro nepotvrzené údaje. Rezervace a kontakt probíhají přes Instagram:
 
 `https://www.instagram.com/lashes.mt/`
 
-Pokud bude později přidán rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Napsat na Instagram` finální rezervační URL. Telefonní odkazy ponechte jako alternativní kontakt.
+Na webu nesmí být zveřejněné žádné telefonní číslo, ani v metadatech, strukturovaných datech, obrázcích nebo odkazech.
+
+Pokud bude později přidán rezervační systém, nahraďte odkazy tlačítek `Objednat termín`, `Objednat se` a `Napsat na Instagram` finální rezervační URL.
 
 Sekce `Objednání` vysvětluje návštěvnicím z Instagramu postup rezervace ve třech krocích. Pokud vznikne rezervační systém, upravte text tak, aby první krok vedl přímo na nový rezervační odkaz.
 
@@ -128,7 +126,7 @@ V `index.html` jsou připravené:
 
 Canonical URL, `og:url`, `og:image`, `twitter:image`, JSON-LD `url` a JSON-LD `image` používají produkční doménu `mtlashes.cz`.
 
-JSON-LD obsahuje aktuální cenové rozpětí. Telefon a otevírací dobu lze přidat po potvrzení veřejných údajů; případně lze doplnit také `geo` souřadnice a přesnější `hasMap`.
+JSON-LD obsahuje aktuální cenové rozpětí. Otevírací dobu lze přidat po potvrzení veřejných údajů; případně lze doplnit také `geo` souřadnice a přesnější `hasMap`.
 
 ## Repo a bezpečné vyčištění
 
